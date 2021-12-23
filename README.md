@@ -15,11 +15,11 @@ supported currently. This document outlines the steps required to setup a basic
 Roundware server that can be accessed through any of these clients.
 
 For more information about Roundware functionalities and projects that use the
-platform, please check out: [roundware.org](http://roundware.org "Roundware")
+platform, please check out: [roundware.org](http://roundware.org 'Roundware')
 
 ## Installation
 
-Roundware includes an *install.sh* to handle installation of the software and
+Roundware includes an _install.sh_ to handle installation of the software and
 its dependencies. The majority of the process is automated. Further
 configuration is required for a production system, application specific
 details are below.
@@ -28,7 +28,7 @@ details are below.
     user@server:~ $ cd roundware-server
     user@server:~/roundware-server $ sudo ./install.sh
 
-The installation process creates a *roundware* user as project owner. `su` to
+The installation process creates a _roundware_ user as project owner. `su` to
 that user to load the required virtual environment:
 
     sudo su - roundware
@@ -57,19 +57,19 @@ Usage:
 
 Notes:
 
- * The installation process uses the default *vagrant* user as project owner.
- * The install script relies on the Vagrant default file share of
-   host:~/roundware-server to vm:/vagrant for installation and development.
- * There are multiple port forwards from the host to the VM:
-   * VM:80->host:8080 for Apache hosting the demo "live" environment available at http://127.0.0.1:8080/
-   * VM:8888->host:8888 for the manage.py runserver development webserver available at http://127.0.0.1:8888/
- * Edit the development environment code on your local machine, then refresh to see the changes reflected in the virtual machine.
+- The installation process uses the default _vagrant_ user as project owner.
+- The install script relies on the Vagrant default file share of
+  host:~/roundware-server to vm:/vagrant for installation and development.
+- There are multiple port forwards from the host to the VM:
+  - VM:80->host:8080 for Apache hosting the demo "live" environment available at http://127.0.0.1:8080/
+  - VM:8888->host:8888 for the manage.py runserver development webserver available at http://127.0.0.1:8888/
+- Edit the development environment code on your local machine, then refresh to see the changes reflected in the virtual machine.
 
 ## Code Upgrades
 
 `deploy.sh` exists to update the Apache WSGI production code. Note: It fully
-replaces any code in */var/www/roundware/static/*. So, for example,
-customizations to *roundware/rw/settings/common.py* must be done to the code
+replaces any code in _/var/www/roundware/static/_. So, for example,
+customizations to _roundware/rw/settings/common.py_ must be done to the code
 base the `deploy.sh` script is run from. To perform a code upgrade:
 
     user@server:~/roundware-server $ git pull
@@ -98,7 +98,7 @@ be made to reflect your environment.
 
     (roundware)user@machine:~/roundware-server/roundware$ ./manage.py syncdb
 
-*Note - this script may prompt for the username and password for your database. If you changed these values from the defaults when creating the Roundware DB, the changes must be reflected here.*
+_Note - this script may prompt for the username and password for your database. If you changed these values from the defaults when creating the Roundware DB, the changes must be reflected here._
 You'll be asked if you want to create a superuser like so:
 
     You just installed Django's auth system, which means you don't have any superusers defined.
@@ -133,12 +133,12 @@ Open a browser and browse to `http://example.com/admin`, and verify you see the 
 
 You can check the Apache log files for debugging information:
 
- * /var/log/apache2/access.log
- * /var/log/apache2/error.log
+- /var/log/apache2/access.log
+- /var/log/apache2/error.log
 
 as well as the Roundware log:
 
- * /var/log/roundware
+- /var/log/roundware
 
 ## Development
 
